@@ -6,6 +6,18 @@ import telegram
 BOT_TOKEN = "7962621975:AAGS5KN9RTtjkJ3ePKSgID6VWlMBmS5SMNE"
 # Ton chat ID personnel
 CHAT_ID = "7609115046"
+# Envoyer un message test au démarrage
+def send_startup_message():
+    message = "✅ Le bot a bien démarré et fonctionne correctement."
+    url = f"https://api.telegram.org/bot{TOKEN}/sendMessage"
+    data = {"chat_id": chat_id, "text": message}
+    try:
+        requests.post(url, data=data)
+    except Exception as e:
+        print("Erreur lors de l'envoi du message test :", e)
+
+# Appeler la fonction au lancement du script
+send_startup_message()
 
 # Intervalle entre chaque vérification (en secondes)
 CHECK_INTERVAL = 30
